@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>event delegation dom mainpulation</title>
+        <style>
+            ul{
+                padding: 10px;
+                background-color: blueviolet;
+                width: 200px;
+                border-radius: 8px;
+            }
+            li{
+                cursor: pointer;
+                padding: 5px;
+                margin: 20px;
+                background-color: crimson;
+                border-radius: 5px;
+            }
+            li:hover{
+                background-color: hotpink;
+
+            }
+            button{
+                margin-top:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3 style="color: greenyellow;">event delegation</h3>
+        <ul id="mylist">
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+        </ul>
+        <button id="addbtn">add item</button>
+        <button id="removebtn">remove last item</button>
+        <button id="access btn">access first item</button>
+        <p id="output"></p>
+        <script>
+            const ul=document.getElementById("mylist");
+            const output=document.getElementById("output");
+            ul.addEventListener("click",function(event) {
+                if(event.target.tagName=="[]"){
+                    output.innerText="you clicked on:"+event.target.innerText;
+
+                }
+                
+            });
+            document.getElementById("addbtn").addEventListener("click",function(event){
+                const newitem=document.createElement("li");
+                newitem.textContent="new item"+(ul.children.length+1);
+                ul.appendChild(newitem);
+            });
+            document.getElementById("removebtn").addEventListener("click",function(event){
+                if(ul.lastElementChild){
+                    ul.removeChild(ul.lastElementChild);
+                }
+            });
+            document.getElementById("accessbtn").addEventListener("click",function(event){
+                if(ul.firstChild){
+                    output.innerText="first item is:"+ul.firstElementChild.innerText
+                }
+            });
+
+        </script>
+    </body>
+</html>

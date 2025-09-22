@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Event Listener</title>
+        <style>
+            #image{
+                padding: 200px;
+                border: 50px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <button id="button">click me</button>
+        <img id="image" src="images\flowers.webp"/>
+        <script>
+            const btn= document.getElementById("button");
+            btn.addEventListener("click",function(e){
+                console.log("button clciked");
+                console.log("eventgenerated:" ,event.target)
+            });
+            const img=document.getElementById("image");
+            img.addEventListener("mouseover",function(e){
+                img.style.borderColor="red";
+                console.log("mouseover");
+                console.log("event genertaed:",event.target)
+            });
+            img.addEventListener("mouseout",function(e){
+                img.style.borderColor='transparent';
+                console.log("mouseout");
+                console.log("event genertaed:",event.target)
+            });
+            document.getElementById("keypressed",function(){
+                console.log("key pressed",event.key);
+                console.log("event generated:",event.target);
+            })
+        </script>
+    </body>
+</html>
